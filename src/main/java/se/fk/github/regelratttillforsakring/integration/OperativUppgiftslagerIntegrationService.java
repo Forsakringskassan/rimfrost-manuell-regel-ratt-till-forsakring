@@ -1,7 +1,7 @@
 package se.fk.github.regelratttillforsakring.integration;
 
-import integration.dto.IntegrationFolkbokfordRequest;
-import integration.dto.IntegrationFolkbokfordResponse;
+//import integration.dto.IntegrationFolkbokfordRequest;
+//import integration.dto.IntegrationFolkbokfordResponse;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -25,19 +25,19 @@ public class OperativUppgiftslagerIntegrationService
 
    //   private FolkbokforingControllerApi folkbokfordClient;
 
-   @PostConstruct
-   void init()
-   {
-      //      this.folkbokfordClient = new JaxrsClientFactory()
-      //            .create(JaxrsClientOptionsBuilders.createClient(folkbokfordBaseUrl, FolkbokforingControllerApi.class)
-      //                  .build());
-   }
-
-   public IntegrationFolkbokfordResponse pakallaManuellUppgift(IntegrationFolkbokfordRequest externalRequest)
-   {
-
-      //      var request = integrationMapper.toExternalApi(externalRequest);
-      //      var response = folkbokfordClient.folkbokforingPersnrGet(request);
-      //      return integrationMapper.fromExternalApi(response);
-   }
+//   @PostConstruct
+//   void init()
+//   {
+//      //      this.folkbokfordClient = new JaxrsClientFactory()
+//      //            .create(JaxrsClientOptionsBuilders.createClient(folkbokfordBaseUrl, FolkbokforingControllerApi.class)
+//      //                  .build());
+//   }
+//
+//   public IntegrationFolkbokfordResponse pakallaManuellUppgift(IntegrationFolkbokfordRequest externalRequest)
+//   {
+//
+//      //      var request = integrationMapper.toExternalApi(externalRequest);
+//      //      var response = folkbokfordClient.folkbokforingPersnrGet(request);
+//      //      return integrationMapper.fromExternalApi(response);
+//   }
 }
