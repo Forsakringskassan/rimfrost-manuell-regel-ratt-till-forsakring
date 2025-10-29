@@ -4,7 +4,7 @@ package se.fk.github.regelratttillforsakring.integration;
 //import integration.dto.IntegrationFolkbokfordRequest;
 //import integration.dto.IntegrationFolkbokfordResponse;
 import jakarta.enterprise.context.ApplicationScoped;
-import se.fk.rimfrost.api.folkbokforing.jaxrsspec.controllers.generatedsource.model.FolkbokforingPersnrGet200Response;
+//import se.fk.rimfrost.api.folkbokforing.jaxrsspec.controllers.generatedsource.model.FolkbokforingPersnrGet200Response;
 
 @ApplicationScoped
 public class IntegrationMapper
