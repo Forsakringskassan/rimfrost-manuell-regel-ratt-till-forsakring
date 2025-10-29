@@ -7,7 +7,7 @@ import org.immutables.value.Value;
 
 @Value.Immutable
 @JsonDeserialize(as = ImmutableVahRtfRequest.class)
-public interface VahRtfRequest
+public interface VahRtfManuellRequest
 {
    UUID processId();
 

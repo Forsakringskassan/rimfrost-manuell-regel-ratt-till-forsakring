@@ -2,7 +2,7 @@ package se.fk.github.regelratttillforsakring.logic;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import se.fk.github.regelratttillforsakring.integration.FolkbokfordIntegrationService;
+import se.fk.github.regelratttillforsakring.integration.OperativUppgiftslagerIntegrationService;
 import se.fk.github.regelratttillforsakring.logic.dto.LogicFolkbokfordRequest;
 import se.fk.github.regelratttillforsakring.logic.dto.LogicFolkbokfordResponse;
 
@@ -11,7 +11,7 @@ public class FolkbokfordLogicService
 {
 
    @Inject
-   FolkbokfordIntegrationService folkbokfordIntegration;
+   OperativUppgiftslagerIntegrationService folkbokfordIntegration;
 
    @Inject
    LogicMapper logicMapper;
@@ -19,7 +19,7 @@ public class FolkbokfordLogicService
    public LogicFolkbokfordResponse checkFolkbokford(LogicFolkbokfordRequest request)
    {
       var integrationRequest = logicMapper.toIntegration(request);
-      var integrationResponse = folkbokfordIntegration.checkFolkbokford(integrationRequest);
+      var integrationResponse = folkbokfordIntegration.pakallaManuellUppgift(integrationRequest);
       return logicMapper.toLogic(integrationResponse);
    }
 }

@@ -33,7 +33,7 @@ public class PresentationMapper
             .build();
    }
 
-   public VahRtfResponse toExternalApi(PresentationVahRtfResponse presentationResponse, UUID processId)
+   public VahRtfManuellResponse toExternalApi(PresentationVahRtfResponse presentationResponse, UUID processId)
    {
       return ImmutableVahRtfResponse.builder()
             .processId(processId)

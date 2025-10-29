@@ -9,13 +9,13 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import se.fk.github.logging.callerinfo.model.MDCKeys;
 import se.fk.github.regelratttillforsakring.logic.FolkbokfordLogicService;
-import se.fk.github.regelratttillforsakring.presentation.dto.VahRtfRequest;
-import se.fk.github.regelratttillforsakring.presentation.dto.VahRtfResponse;
+import se.fk.github.regelratttillforsakring.presentation.dto.VahRtfManuellRequest;
+import se.fk.github.regelratttillforsakring.presentation.dto.VahRtfManuellResponse;
 
 @ApplicationScoped
-public class VahRtfProcessor
+public class ManualVahRtfProcessor
 {
-   private static final Logger LOGGER = LoggerFactory.getLogger(VahRtfProcessor.class);
+   private static final Logger LOGGER = LoggerFactory.getLogger(ManualVahRtfProcessor.class);
 
    @Inject
    FolkbokfordLogicService folkbokfordService;
@@ -25,7 +25,7 @@ public class VahRtfProcessor
 
    @Incoming("vah-rtf-requests")
    @Outgoing("vah-rtf-responses")
-   public VahRtfResponse process(VahRtfRequest vahRtfRequest)
+   public VahRtfManuellResponse process(VahRtfManuellRequest vahRtfRequest)
    {
       MDC.put(MDCKeys.PROCESSID.name(), vahRtfRequest.processId().toString());
       LOGGER.info("Vah-rtf-request received, ID: " + vahRtfRequest.processId());
