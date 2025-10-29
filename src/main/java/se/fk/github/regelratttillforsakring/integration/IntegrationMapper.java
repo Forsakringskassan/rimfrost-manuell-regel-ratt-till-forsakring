@@ -9,15 +9,15 @@ import se.fk.rimfrost.api.folkbokforing.jaxrsspec.controllers.generatedsource.mo
 @ApplicationScoped
 public class IntegrationMapper
 {
-//   public String toExternalApi(IntegrationFolkbokfordRequest integrationRequest)
-//   {
-//      return integrationRequest.personnummer();
-//   }
-//
-//   public IntegrationFolkbokfordResponse fromExternalApi(FolkbokforingPersnrGet200Response externalResponse)
-//   {
-//      return ImmutableIntegrationFolkbokfordResponse.builder()
-//            .isBokford(externalResponse.getResult())
-//            .build();
-//   }
+   //   public String toExternalApi(IntegrationFolkbokfordRequest integrationRequest)
+   //   {
+   //      return integrationRequest.personnummer();
+   //   }
+   //
+   //   public IntegrationFolkbokfordResponse fromExternalApi(FolkbokforingPersnrGet200Response externalResponse)
+   //   {
+   //      return ImmutableIntegrationFolkbokfordResponse.builder()
+   //            .isBokford(externalResponse.getResult())
+   //            .build();
+   //   }
 }

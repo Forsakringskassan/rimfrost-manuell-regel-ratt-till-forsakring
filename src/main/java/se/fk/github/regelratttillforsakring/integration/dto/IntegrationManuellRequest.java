@@ -2,8 +2,12 @@ package se.fk.github.regelratttillforsakring.integration.dto;
 
 import org.immutables.value.Value;
 
+import java.util.UUID;
+
 @Value.Immutable
-public interface IntegrationFolkbokfordResponse
+public interface IntegrationManuellRequest
 {
-   Boolean isBokford();
+   UUID processId();
+
+   String personnummer();
 }

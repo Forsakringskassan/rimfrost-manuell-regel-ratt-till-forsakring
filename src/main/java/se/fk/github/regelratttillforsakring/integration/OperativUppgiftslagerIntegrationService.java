@@ -25,19 +25,19 @@ public class OperativUppgiftslagerIntegrationService
 
    //   private FolkbokforingControllerApi folkbokfordClient;
 
-//   @PostConstruct
-//   void init()
-//   {
-//      //      this.folkbokfordClient = new JaxrsClientFactory()
-//      //            .create(JaxrsClientOptionsBuilders.createClient(folkbokfordBaseUrl, FolkbokforingControllerApi.class)
-//      //                  .build());
-//   }
-//
-//   public IntegrationFolkbokfordResponse pakallaManuellUppgift(IntegrationFolkbokfordRequest externalRequest)
-//   {
-//
-//      //      var request = integrationMapper.toExternalApi(externalRequest);
-//      //      var response = folkbokfordClient.folkbokforingPersnrGet(request);
-//      //      return integrationMapper.fromExternalApi(response);
-//   }
+   //   @PostConstruct
+   //   void init()
+   //   {
+   //      //      this.folkbokfordClient = new JaxrsClientFactory()
+   //      //            .create(JaxrsClientOptionsBuilders.createClient(folkbokfordBaseUrl, FolkbokforingControllerApi.class)
+   //      //                  .build());
+   //   }
+   //
+   //   public IntegrationFolkbokfordResponse pakallaManuellUppgift(IntegrationFolkbokfordRequest externalRequest)
+   //   {
+   //
+   //      //      var request = integrationMapper.toExternalApi(externalRequest);
+   //      //      var response = folkbokfordClient.folkbokforingPersnrGet(request);
+   //      //      return integrationMapper.fromExternalApi(response);
+   //   }
 }

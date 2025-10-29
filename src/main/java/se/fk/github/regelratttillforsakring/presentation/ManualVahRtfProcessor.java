@@ -15,25 +15,25 @@ import se.fk.github.regelratttillforsakring.presentation.dto.VahRtfManuellRespon
 @ApplicationScoped
 public class ManualVahRtfProcessor
 {
-//   private static final Logger LOGGER = LoggerFactory.getLogger(ManualVahRtfProcessor.class);
-//
-//   @Inject
-//   FolkbokfordLogicService folkbokfordService;
-//
-//   @Inject
-//   PresentationMapper presentationMapper;
-//
-//   @Incoming("vah-rtf-requests")
-//   @Outgoing("vah-rtf-responses")
-//   public VahRtfManuellResponse process(VahRtfManuellRequest vahRtfRequest)
-//   {
-//      MDC.put(MDCKeys.PROCESSID.name(), vahRtfRequest.processId().toString());
-//      LOGGER.info("Vah-rtf-request received, ID: " + vahRtfRequest.processId());
-//      var presentationRequest = presentationMapper.fromExternalApi(vahRtfRequest.pnr());
-//      var logicRequest = presentationMapper.toLogic(presentationRequest);
-//      var bokford = folkbokfordService.checkFolkbokford(logicRequest);
-//      var presentationResult = presentationMapper.toPresentation(bokford);
-//      var vahRtfResponse = presentationMapper.toExternalApi(presentationResult, vahRtfRequest.processId());
-//      return vahRtfResponse;
-//   }
+   //   private static final Logger LOGGER = LoggerFactory.getLogger(ManualVahRtfProcessor.class);
+   //
+   //   @Inject
+   //   FolkbokfordLogicService folkbokfordService;
+   //
+   //   @Inject
+   //   PresentationMapper presentationMapper;
+   //
+   //   @Incoming("vah-rtf-requests")
+   //   @Outgoing("vah-rtf-responses")
+   //   public VahRtfManuellResponse process(VahRtfManuellRequest vahRtfRequest)
+   //   {
+   //      MDC.put(MDCKeys.PROCESSID.name(), vahRtfRequest.processId().toString());
+   //      LOGGER.info("Vah-rtf-request received, ID: " + vahRtfRequest.processId());
+   //      var presentationRequest = presentationMapper.fromExternalApi(vahRtfRequest.pnr());
+   //      var logicRequest = presentationMapper.toLogic(presentationRequest);
+   //      var bokford = folkbokfordService.checkFolkbokford(logicRequest);
+   //      var presentationResult = presentationMapper.toPresentation(bokford);
+   //      var vahRtfResponse = presentationMapper.toExternalApi(presentationResult, vahRtfRequest.processId());
+   //      return vahRtfResponse;
+   //   }
 }
