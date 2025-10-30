@@ -23,7 +23,6 @@ public class IntegrationServiceProducer
 
    private static final Logger LOGGER = LoggerFactory.getLogger(IntegrationServiceProducer.class);
 
-   @Outgoing("rtf-oul-request")
    public void callManualTask(IntegrationManuellRequest externalRequest)
    {
       LOGGER.info("Manuell request mottaget med ID: " + externalRequest.processId());
