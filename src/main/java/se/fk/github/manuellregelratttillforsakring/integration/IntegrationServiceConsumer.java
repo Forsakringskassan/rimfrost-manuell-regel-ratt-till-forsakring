@@ -21,7 +21,7 @@ public class IntegrationServiceConsumer
 
    private static final Logger LOGGER = LoggerFactory.getLogger(IntegrationServiceConsumer.class);
 
-   @Incoming("rtf-oul-response")
+   @Incoming("operativt-uppgiftslager-responses")
    public void onReply(ExempelRtfResponsePayload reply)
    {
       LOGGER.info("OUL Reply mottaget med ID: " + reply.getProcessId());

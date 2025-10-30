@@ -17,7 +17,7 @@ public class IntegrationServiceProducer
    IntegrationMapper integrationMapper;
 
    @Inject
-   @Channel("rtf-oul-request")
+   @Channel("operativt-uppgiftslager-requests")
    @OnOverflow(value = OnOverflow.Strategy.BUFFER, bufferSize = 1024)
    Emitter<ExempelRtfRequestPayload> emitter;
 

@@ -26,11 +26,11 @@ public class PresentationService
    PresentationMapper presentationMapper;
 
    @Inject
-   @Channel("manuell-vah-rtf-responses")
+   @Channel("vah-rtf-manuell-responses")
    @OnOverflow(value = OnOverflow.Strategy.BUFFER, bufferSize = 1024)
    Emitter<VahRtfManuellResponsePayload> emitter;
 
-   @Incoming("manuell-vah-rtf-request")
+   @Incoming("vah-rtf-manuell-request")
    public void process(VahRtfManuellRequestPayload payload)
    {
       MDC.put(MDCKeys.PROCESSID.name(), payload.getProcessId());
