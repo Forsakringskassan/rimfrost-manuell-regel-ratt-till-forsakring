@@ -6,6 +6,7 @@ import se.fk.github.manuellregelratttillforsakring.logic.dto.LogicManuellRequest
 import se.fk.github.manuellregelratttillforsakring.logic.dto.LogicManuellResponse;
 import se.fk.github.manuellregelratttillforsakring.presentation.dto.*;
 import se.fk.gradle.rimfrostvahregelrtfmanuellt.VahRtfManuellRequestPayload;
+import se.fk.gradle.rimfrostvahregelrtfmanuellt.VahRtfManuellResponsePayload;
 
 import java.util.UUID;
 
@@ -37,4 +38,12 @@ public class PresentationMapper
             .build();
    }
 
+   public VahRtfManuellResponsePayload toExternalApi(PresentationVahRtfManuellResponse presentationResponse)
+   {
+       var responsePayload = new VahRtfManuellResponsePayload();
+       responsePayload.setProcessId(presentationResponse.processId().toString());
+       responsePayload.setPersonNummer(presentationResponse.personnummer());
+       responsePayload.setRattTillForsakring(presentationResponse.rattTillForsakring());
+       return responsePayload;
+   }
 }
