@@ -1,12 +1,12 @@
 package se.fk.github.manuellregelratttillforsakring.kafka;
 
 import io.quarkus.kafka.client.serialization.ObjectMapperDeserializer;
-import se.fk.github.manuellregelratttillforsakring.presentation.dto.VahRtfManuellRequest;
+import se.fk.gradle.rimfrostvahregelrtfmanuellt.VahRtfManuellRequestPayload;
 
-public class VahRtfManuellRequestDeserializer extends ObjectMapperDeserializer<VahRtfManuellRequest>
+public class VahRtfManuellRequestDeserializer extends ObjectMapperDeserializer<VahRtfManuellRequestPayload>
 {
    public VahRtfManuellRequestDeserializer()
    {
-      super(VahRtfManuellRequest.class);
+      super(VahRtfManuellRequestPayload.class);
    }
 }

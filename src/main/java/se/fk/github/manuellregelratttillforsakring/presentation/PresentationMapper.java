@@ -37,12 +37,4 @@ public class PresentationMapper
             .build();
    }
 
-   public VahRtfManuellResponse toExternalApi(PresentationVahRtfManuellResponse presentationResponse)
-   {
-      return ImmutableVahRtfManuellResponse.builder()
-            .processId(presentationResponse.processId())
-            .personnummer(presentationResponse.personnummer())
-            .rattTillForsakring(presentationResponse.rattTillForsakring())
-            .build();
-   }
 }
