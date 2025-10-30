@@ -1,4 +1,4 @@
-package se.fk.github.regelratttillforsakring.integration.dto;
+package se.fk.github.manuellregelratttillforsakring.integration.dto;
 
 import org.immutables.value.Value;
 
@@ -11,5 +11,5 @@ public interface IntegrationManuellResponse
 
    String personnummer();
 
-   Boolean isBokford();
+   boolean rattTillForsakring();
 }
