@@ -15,7 +15,7 @@ public class LogicService
    IntegrationServiceProducer integrationService;
 
    @Inject
-    PresentationService presentationService;
+   PresentationService presentationService;
 
    @Inject
    LogicMapper logicMapper;
@@ -28,7 +28,7 @@ public class LogicService
 
    public void responseForManuelTask(IntegrationManuellResponse integrationResponse)
    {
-        var logicResponse = logicMapper.toLogic(integrationResponse);
-        presentationService.reply(logicResponse);
+      var logicResponse = logicMapper.toLogic(integrationResponse);
+      presentationService.reply(logicResponse);
    }
 }

@@ -10,21 +10,22 @@ import se.fk.github.manuellregelratttillforsakring.logic.LogicService;
 import se.fk.gradle.examples.asyncapi.ExempelRtfResponsePayload;
 
 @ApplicationScoped
-public class IntegrationServiceConsumer {
+public class IntegrationServiceConsumer
+{
 
-    @Inject
-    IntegrationMapper integrationMapper;
+   @Inject
+   IntegrationMapper integrationMapper;
 
-    @Inject
-    LogicService logicService;
+   @Inject
+   LogicService logicService;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(IntegrationServiceConsumer.class);
+   private static final Logger LOGGER = LoggerFactory.getLogger(IntegrationServiceConsumer.class);
 
-    @Incoming("rtf-oul-response")
-    public void onReply(ExempelRtfResponsePayload reply)
-    {
-        LOGGER.info("OUL Reply mottaget med ID: " + reply.getProcessId());
-        var response = integrationMapper.fromExternalApi(reply);
-        logicService.responseForManuelTask(response);
-    }
+   @Incoming("rtf-oul-response")
+   public void onReply(ExempelRtfResponsePayload reply)
+   {
+      LOGGER.info("OUL Reply mottaget med ID: " + reply.getProcessId());
+      var response = integrationMapper.fromExternalApi(reply);
+      logicService.responseForManuelTask(response);
+   }
 }

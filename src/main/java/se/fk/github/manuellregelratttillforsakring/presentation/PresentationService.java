@@ -26,10 +26,10 @@ public class PresentationService
    @Inject
    PresentationMapper presentationMapper;
 
-    @Inject
-    @Channel("rtf-oul-request")
-    @OnOverflow(value = OnOverflow.Strategy.BUFFER, bufferSize = 1024)
-    Emitter<ExempelRtfResponsePayload> emitter;
+   @Inject
+   @Channel("rtf-oul-request")
+   @OnOverflow(value = OnOverflow.Strategy.BUFFER, bufferSize = 1024)
+   Emitter<ExempelRtfResponsePayload> emitter;
 
    @Incoming("manuell-vah-rtf-request")
    public void process(VahRtfManuellRequestPayload payload)
@@ -44,11 +44,11 @@ public class PresentationService
    @Outgoing("manuell-vah-rtf-response")
    public void reply(LogicManuellResponse externalResponse)
    {
-       LOGGER.info("Manuell task-response skickad tillbaka med ID: " + externalResponse.processId());
-       var response = presentationMapper.toPresentation(externalResponse);
-       var outgoingResponse = presentationMapper.toExternalApi(response);
-       var metadata = OutgoingKafkaRecordMetadata.<String>builder().withKey(outgoingResponse.getProcessId()).build();
-       LOGGER.info("Skickar manuell task-response via kafka med ID: " + externalResponse.processId());
-       Message<VahRtfManuellResponsePayload> msg = Message.of(outgoingResponse).addMetadata(metadata);
+      LOGGER.info("Manuell task-response skickad tillbaka med ID: " + externalResponse.processId());
+      var response = presentationMapper.toPresentation(externalResponse);
+      var outgoingResponse = presentationMapper.toExternalApi(response);
+      var metadata = OutgoingKafkaRecordMetadata.<String> builder().withKey(outgoingResponse.getProcessId()).build();
+      LOGGER.info("Skickar manuell task-response via kafka med ID: " + externalResponse.processId());
+      Message<VahRtfManuellResponsePayload> msg = Message.of(outgoingResponse).addMetadata(metadata);
    }
 }

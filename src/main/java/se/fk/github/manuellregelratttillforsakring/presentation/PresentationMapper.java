@@ -40,10 +40,10 @@ public class PresentationMapper
 
    public VahRtfManuellResponsePayload toExternalApi(PresentationVahRtfManuellResponse presentationResponse)
    {
-       var responsePayload = new VahRtfManuellResponsePayload();
-       responsePayload.setProcessId(presentationResponse.processId().toString());
-       responsePayload.setPersonNummer(presentationResponse.personnummer());
-       responsePayload.setRattTillForsakring(presentationResponse.rattTillForsakring());
-       return responsePayload;
+      var responsePayload = new VahRtfManuellResponsePayload();
+      responsePayload.setProcessId(presentationResponse.processId().toString());
+      responsePayload.setPersonNummer(presentationResponse.personnummer());
+      responsePayload.setRattTillForsakring(presentationResponse.rattTillForsakring());
+      return responsePayload;
    }
 }
