@@ -2,28 +2,41 @@ package se.fk.github.manuellregelratttillforsakring.integration;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import se.fk.github.manuellregelratttillforsakring.integration.dto.*;
-import se.fk.gradle.examples.asyncapi.ExempelRtfRequestPayload;
-import se.fk.gradle.examples.asyncapi.ExempelRtfResponsePayload;
-
-import java.util.UUID;
 
 @ApplicationScoped
 public class IntegrationMapper
 {
-   public ExempelRtfRequestPayload toExternalApi(IntegrationManuellRequest integrationRequest)
+   
+   public OulRequest toOperativtUppgiftsLagerRequest(VahRtfManuellRequest rtfRequest)
    {
-      var payload = new ExempelRtfRequestPayload();
-      payload.setProcessId(integrationRequest.processId().toString());
-      payload.setPersonNummer(integrationRequest.personnummer());
-      return payload;
+      return ImmutableOulRequest.builder()
+         .processId(rtfRequest.processId())
+         .personNummer(rtfRequest.personnummer())
+         .uppgift("Kolla om personen har rätt till försäkring")
+         .build();
    }
-
-   public IntegrationManuellResponse fromExternalApi(ExempelRtfResponsePayload externalResponse)
+   
+   public CloudEvent<VahRtfManuellResponse> toRtfResponse(OulResponse oulResponse,
+         CloudEvent<VahRtfManuellRequest> request)
    {
-      return ImmutableIntegrationManuellResponse.builder()
-            .processId(UUID.fromString(externalResponse.getProcessId()))
-            .personnummer(externalResponse.getPersonNummer())
-            .rattTillForsakring(externalResponse.getRattTillForsakring())
+      return ImmutableCloudEvent.<VahRtfManuellResponse> builder()
+            .id(request.id())
+            .source(request.source())
+            .type("vah-rtf-manuell-responses")
+            .kogitorootprocid(request.kogitorootprocid())
+            .kogitorootprociid(request.kogitorootprociid())
+            .kogitoparentprociid(request.kogitoparentprociid())
+            .kogitoprocid(request.kogitoprocid())
+            .kogitoprocinstanceid(request.kogitoprocinstanceid())
+            .kogitoprocrefid(request.kogitoprocinstanceid())
+            .kogitoprocist(request.kogitoprocist())
+            .kogitoproctype(request.kogitoproctype())
+            .kogitoprocversion(request.kogitoprocversion())
+            .data(ImmutableVahRtfManuellResponse.builder()
+               .processId(oulResponse.processId())
+               .personnummer(oulResponse.personnummer())
+               .resultat(oulResponse.resultat())
+               .build())
             .build();
    }
 }
