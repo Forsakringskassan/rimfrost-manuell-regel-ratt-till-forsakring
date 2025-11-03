@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public interface OulResponse {
     UUID processId();
 
-    String personnummer();
+    String personNummer();
 
     boolean resultat();
 }
