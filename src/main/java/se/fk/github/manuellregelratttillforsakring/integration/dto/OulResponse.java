@@ -8,10 +8,11 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @Value.Immutable
 @JsonDeserialize(as = ImmutableOulResponse.class)
-public interface OulResponse {
-    UUID processId();
+public interface OulResponse
+{
+   UUID processId();
 
-    String personNummer();
+   String personNummer();
 
-    boolean resultat();
+   boolean resultat();
 }

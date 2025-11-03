@@ -6,16 +6,16 @@ import se.fk.github.manuellregelratttillforsakring.integration.dto.*;
 @ApplicationScoped
 public class IntegrationMapper
 {
-   
+
    public OulRequest toOperativtUppgiftsLagerRequest(VahRtfManuellRequest rtfRequest)
    {
       return ImmutableOulRequest.builder()
-         .processId(rtfRequest.processId())
-         .personNummer(rtfRequest.pnr())
-         .uppgift("Kolla om personen har rätt till försäkring")
-         .build();
+            .processId(rtfRequest.processId())
+            .personNummer(rtfRequest.pnr())
+            .uppgift("Kolla om personen har rätt till försäkring")
+            .build();
    }
-   
+
    public CloudEvent<VahRtfManuellResponse> toRtfResponse(OulResponse oulResponse,
          CloudEvent<VahRtfManuellRequest> request)
    {
@@ -33,9 +33,9 @@ public class IntegrationMapper
             .kogitoproctype(request.kogitoproctype())
             .kogitoprocversion(request.kogitoprocversion())
             .data(ImmutableVahRtfManuellResponse.builder()
-               .processId(oulResponse.processId())
-               .result(oulResponse.resultat())
-               .build())
+                  .processId(oulResponse.processId())
+                  .result(oulResponse.resultat())
+                  .build())
             .build();
    }
 }

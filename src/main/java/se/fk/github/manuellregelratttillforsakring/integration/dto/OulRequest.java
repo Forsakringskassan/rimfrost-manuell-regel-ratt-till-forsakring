@@ -8,12 +8,13 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Value.Immutable
 @JsonSerialize(as = ImmutableOulRequest.class)
-public interface OulRequest {
+public interface OulRequest
+{
 
-    UUID processId();
+   UUID processId();
 
-    String personNummer();
-    
-    String uppgift();
+   String personNummer();
+
+   String uppgift();
 
 }

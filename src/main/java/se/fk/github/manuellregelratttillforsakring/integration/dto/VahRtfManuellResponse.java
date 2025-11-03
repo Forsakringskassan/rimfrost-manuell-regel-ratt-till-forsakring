@@ -12,5 +12,5 @@ public interface VahRtfManuellResponse
 {
    UUID processId();
 
-  boolean result();
+   boolean result();
 }
