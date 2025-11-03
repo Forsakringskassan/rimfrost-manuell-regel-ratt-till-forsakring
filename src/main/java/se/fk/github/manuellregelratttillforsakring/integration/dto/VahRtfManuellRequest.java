@@ -7,10 +7,10 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.util.UUID;
 
 @Value.Immutable
-@JsonDeserialize(as = VahRtfManuellRequest.class)
+@JsonDeserialize(as = ImmutableVahRtfManuellRequest.class)
 public interface VahRtfManuellRequest
 {
    UUID processId();
 
-   String personnummer();
+   String pnr();
 }

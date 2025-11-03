@@ -11,7 +11,7 @@ public class IntegrationMapper
    {
       return ImmutableOulRequest.builder()
          .processId(rtfRequest.processId())
-         .personNummer(rtfRequest.personnummer())
+         .personNummer(rtfRequest.pnr())
          .uppgift("Kolla om personen har rätt till försäkring")
          .build();
    }
@@ -34,8 +34,7 @@ public class IntegrationMapper
             .kogitoprocversion(request.kogitoprocversion())
             .data(ImmutableVahRtfManuellResponse.builder()
                .processId(oulResponse.processId())
-               .personnummer(oulResponse.personnummer())
-               .resultat(oulResponse.resultat())
+               .result(oulResponse.resultat())
                .build())
             .build();
    }
