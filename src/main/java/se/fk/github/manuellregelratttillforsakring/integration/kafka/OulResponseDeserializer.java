@@ -1,12 +1,12 @@
 package se.fk.github.manuellregelratttillforsakring.integration.kafka;
 
 import io.quarkus.kafka.client.serialization.ObjectMapperDeserializer;
-import se.fk.github.manuellregelratttillforsakring.integration.dto.OulResponse;
+import se.fk.rimfrost.OperativtUppgiftslagerResponseMessagePayload;
 
-public class OulResponseDeserializer extends ObjectMapperDeserializer<OulResponse>
+public class OulResponseDeserializer extends ObjectMapperDeserializer<OperativtUppgiftslagerResponseMessagePayload>
 {
    public OulResponseDeserializer()
    {
-      super(OulResponse.class);
+      super(OperativtUppgiftslagerResponseMessagePayload.class);
    }
 }
