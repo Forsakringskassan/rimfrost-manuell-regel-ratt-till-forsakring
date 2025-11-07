@@ -1,17 +1,12 @@
 package se.fk.github.manuellregelratttillforsakring.integration.kafka;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-
 import io.quarkus.kafka.client.serialization.ObjectMapperDeserializer;
-import se.fk.github.manuellregelratttillforsakring.integration.dto.CloudEvent;
-import se.fk.github.manuellregelratttillforsakring.integration.dto.VahRtfManuellRequest;
+import se.fk.rimfrost.VahRtfManuellRequestMessagePayload;
 
-public class VahRtfManuellRequestDeserializer extends ObjectMapperDeserializer<CloudEvent<VahRtfManuellRequest>>
+public class VahRtfManuellRequestDeserializer extends ObjectMapperDeserializer<VahRtfManuellRequestMessagePayload>
 {
    public VahRtfManuellRequestDeserializer()
    {
-      super(new TypeReference<CloudEvent<VahRtfManuellRequest>>()
-      {
-      });
+      super(VahRtfManuellRequestMessagePayload.class);
    }
 }

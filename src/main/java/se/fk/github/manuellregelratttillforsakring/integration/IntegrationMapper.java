@@ -1,41 +1,66 @@
 package se.fk.github.manuellregelratttillforsakring.integration;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import se.fk.github.manuellregelratttillforsakring.integration.dto.*;
+import se.fk.rimfrost.BeslutUtfall;
+import se.fk.rimfrost.OperativtUppgiftslagerRequestMessageData;
+import se.fk.rimfrost.OperativtUppgiftslagerRequestMessagePayload;
+import se.fk.rimfrost.OperativtUppgiftslagerResponseMessagePayload;
+import se.fk.rimfrost.VahRtfManuellRequestMessagePayload;
+import se.fk.rimfrost.VahRtfManuellResponseMessageData;
+import se.fk.rimfrost.VahRtfManuellResponseMessagePayload;
 
 @ApplicationScoped
 public class IntegrationMapper
 {
-
-   public OulRequest toOperativtUppgiftsLagerRequest(VahRtfManuellRequest rtfRequest)
+   public OperativtUppgiftslagerRequestMessagePayload toOperativtUppgiftsLagerRequest(
+         VahRtfManuellRequestMessagePayload rtfRequest)
    {
-      return ImmutableOulRequest.builder()
-            .processId(rtfRequest.processId())
-            .personNummer(rtfRequest.pnr())
-            .uppgift("Kolla om personen har rätt till försäkring")
-            .build();
+      var oulRequestPayload = new OperativtUppgiftslagerRequestMessagePayload();
+      var oulRequestData = new OperativtUppgiftslagerRequestMessageData();
+      oulRequestData.setProcessId(rtfRequest.getData().getProcessId());
+      oulRequestData.setPersonNummer(rtfRequest.getData().getPersonNummer());
+      oulRequestData.setUppgiftsBeskrivning("Kolla om personen har rätt till försäkring");
+
+      oulRequestPayload.setId(rtfRequest.getId());
+      oulRequestPayload.setSpecversion(rtfRequest.getSpecversion());
+      oulRequestPayload.setSource(rtfRequest.getSource());
+      oulRequestPayload.setType("operativt-uppgiftslager-requests");
+      oulRequestPayload.setKogitorootprocid(rtfRequest.getKogitorootprocid());
+      oulRequestPayload.setKogitorootprociid(rtfRequest.getKogitorootprociid());
+      oulRequestPayload.setKogitoparentprociid(rtfRequest.getKogitoparentprociid());
+      oulRequestPayload.setKogitoprocid(rtfRequest.getKogitoprocid());
+      oulRequestPayload.setKogitoprocinstanceid(rtfRequest.getKogitoprocinstanceid());
+      oulRequestPayload.setKogitoprocrefid(rtfRequest.getKogitoprocinstanceid());
+      oulRequestPayload.setKogitoprocist(rtfRequest.getKogitoprocist());
+      oulRequestPayload.setKogitoproctype(rtfRequest.getKogitoproctype());
+      oulRequestPayload.setKogitoprocversion(rtfRequest.getKogitoprocversion());
+      oulRequestPayload.setData(oulRequestData);
+      return oulRequestPayload;
    }
 
-   public CloudEvent<VahRtfManuellResponse> toRtfResponse(OulResponse oulResponse,
-         CloudEvent<VahRtfManuellRequest> request)
+   public VahRtfManuellResponseMessagePayload toRtfResponse(OperativtUppgiftslagerResponseMessagePayload oulResponse)
    {
-      return ImmutableCloudEvent.<VahRtfManuellResponse> builder()
-            .id(request.id())
-            .source(request.source())
-            .type("vah-rtf-manuell-responses")
-            .kogitorootprocid(request.kogitorootprocid())
-            .kogitorootprociid(request.kogitorootprociid())
-            .kogitoparentprociid(request.kogitoparentprociid())
-            .kogitoprocid(request.kogitoprocid())
-            .kogitoprocinstanceid(request.kogitoprocinstanceid())
-            .kogitoprocrefid(request.kogitoprocinstanceid())
-            .kogitoprocist(request.kogitoprocist())
-            .kogitoproctype(request.kogitoproctype())
-            .kogitoprocversion(request.kogitoprocversion())
-            .data(ImmutableVahRtfManuellResponse.builder()
-                  .processId(oulResponse.processId())
-                  .result(oulResponse.resultat())
-                  .build())
-            .build();
+      VahRtfManuellResponseMessageData data = new VahRtfManuellResponseMessageData();
+      data.setProcessId(oulResponse.getData().getProcessId());
+      data.setPersonNummer(oulResponse.getData().getPersonnummer());
+      data.setRattTillForsakring(oulResponse.getData().getBeslutUtfall() == BeslutUtfall.BEVILJAT);
+
+      VahRtfManuellResponseMessagePayload response = new VahRtfManuellResponseMessagePayload();
+      response.setId(oulResponse.getId());
+      response.setSpecversion(oulResponse.getSpecversion());
+      response.setSource(oulResponse.getSource());
+      response.setType("vah-rtf-manuell-responses");
+      response.setKogitorootprocid(oulResponse.getKogitorootprocid());
+      response.setKogitorootprociid(oulResponse.getKogitorootprociid());
+      response.setKogitoparentprociid(oulResponse.getKogitoparentprociid());
+      response.setKogitoprocid(oulResponse.getKogitoprocid());
+      response.setKogitoprocinstanceid(oulResponse.getKogitoprocinstanceid());
+      response.setKogitoprocrefid(oulResponse.getKogitoprocinstanceid());
+      response.setKogitoprocist(oulResponse.getKogitoprocist());
+      response.setKogitoproctype(oulResponse.getKogitoproctype());
+      response.setKogitoprocversion(oulResponse.getKogitoprocversion());
+      response.setData(data);
+
+      return response;
    }
 }
