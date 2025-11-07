@@ -25,6 +25,7 @@ public class IntegrationServiceProcessor
    IntegrationMapper integrationMapper;
 
    private static final Logger LOGGER = LoggerFactory.getLogger(IntegrationServiceProcessor.class);
+
    @Incoming("vah-rtf-manuell-requests")
    @Outgoing("operativt-uppgiftslager-requests")
    public OperativtUppgiftslagerRequestMessagePayload onRtfManuellRequest(VahRtfManuellRequestMessagePayload rtfRequest)
@@ -41,5 +42,4 @@ public class IntegrationServiceProcessor
       LOGGER.info("OULResponse received with ID: " + oulResponse.getData().getProcessId());
       return integrationMapper.toRtfResponse(oulResponse);
    }
-   */
 }

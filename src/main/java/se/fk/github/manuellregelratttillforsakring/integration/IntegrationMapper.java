@@ -12,14 +12,15 @@ import se.fk.rimfrost.VahRtfManuellResponseMessagePayload;
 @ApplicationScoped
 public class IntegrationMapper
 {
-   public OperativtUppgiftslagerRequestMessagePayload toOperativtUppgiftsLagerRequest(VahRtfManuellRequestMessagePayload rtfRequest)
+   public OperativtUppgiftslagerRequestMessagePayload toOperativtUppgiftsLagerRequest(
+         VahRtfManuellRequestMessagePayload rtfRequest)
    {
       var oulRequestPayload = new OperativtUppgiftslagerRequestMessagePayload();
       var oulRequestData = new OperativtUppgiftslagerRequestMessageData();
       oulRequestData.setProcessId(rtfRequest.getData().getProcessId());
       oulRequestData.setPersonNummer(rtfRequest.getData().getPersonNummer());
       oulRequestData.setUppgiftsBeskrivning("Kolla om personen har rätt till försäkring");
-      
+
       oulRequestPayload.setId(rtfRequest.getId());
       oulRequestPayload.setSpecversion(rtfRequest.getSpecversion());
       oulRequestPayload.setSource(rtfRequest.getSource());
@@ -37,7 +38,7 @@ public class IntegrationMapper
       return oulRequestPayload;
    }
 
-    public VahRtfManuellResponseMessagePayload toRtfResponse(OperativtUppgiftslagerResponseMessagePayload oulResponse)
+   public VahRtfManuellResponseMessagePayload toRtfResponse(OperativtUppgiftslagerResponseMessagePayload oulResponse)
    {
       VahRtfManuellResponseMessageData data = new VahRtfManuellResponseMessageData();
       data.setProcessId(oulResponse.getData().getProcessId());
